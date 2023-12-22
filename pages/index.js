@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Html5QrcodePlugin from "./components/html5-qrcode";
 import styles from "../styles/Home.module.css";
+import QrScanner from "./components/qr-scanner";
 
 export default function Home() {
   const [showScanner, setScannerST] = useState(false);
@@ -15,13 +16,14 @@ export default function Home() {
   return (
     <div className={styles.container}>
       <main className={styles.main}>
-        <Html5QrcodePlugin
+        {/* <Html5QrcodePlugin
           fps={10}
           qrbox={1000}
           disableFlip={false}
           qrCodeSuccessCallback={onNewScanResult}
-        />
-        <p>QrCode Result : {qrcode_result}</p>
+        /> */}
+        {/* <p>QrCode Result : {qrcode_result}</p> */}
+        <QrScanner />
       </main>
     </div>
   );
