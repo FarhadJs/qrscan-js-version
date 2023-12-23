@@ -2,7 +2,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import QrScanner from "qr-scanner";
 
-const ScanQR = () => {
+const ScanQR = ({ ScanSuccess }) => {
   const videoRef = useRef(null);
   const [scanResult, setScanResult] = useState("");
   const [hasFlash, setHasFlash] = useState(false);
@@ -15,6 +15,7 @@ const ScanQR = () => {
         videoRef.current,
         (result) => {
           setScanResult(result.data);
+          ScanSuccess(true, scanResult);
         },
         {
           highlightScanRegion: true,
@@ -45,10 +46,10 @@ const ScanQR = () => {
   }, []);
 
   return (
-    <div style={{width:"200px"}}>
-      <video ref={videoRef} style={{width:"200px"}} />
-      <p>Scanned QR Code: {scanResult}</p>
-    </div>
+    <video
+      ref={videoRef}
+      style={{ width: "250px", borderRadius: "30px" }}
+    />
   );
 };
 
