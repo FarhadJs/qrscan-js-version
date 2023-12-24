@@ -1,9 +1,5 @@
 import { useState } from "react";
-import Html5QrcodePlugin from "./components/qr-code/html5-qrcode";
 import styles from "../styles/Home.module.css";
-import QrScanner from "./components/qr-code/qr-scanner";
-import { Button } from "@nextui-org/button";
-import { Chip } from "@nextui-org/react";
 import FormEth from "./components/FormEth";
 
 export default function Home() {
@@ -27,11 +23,11 @@ export default function Home() {
         /> */}
         {/* <p>QrCode Result : {qrcode_result}</p> */}
         {/* <QrScanner /> */}
-        <div className="flex gap-1">
-          <h1 className="mb-8 text-2xl">Ethereum</h1>
-          <Chip className="bg-[#1C212C] mt-1.5 bg-opacity-80 text-white text-opacity-50" size="sm">
+        <div className="flex items-center justify-center gap-1 mb-8">
+          <h1 className="text-2xl">Ethereum</h1>
+          <span className="bg-[#1C212C] bg-opacity-80 px-2 mt-0.5 rounded-xl text-white text-opacity-50">
             ETH
-          </Chip>
+          </span>
         </div>
         <FormEth />
       </main>

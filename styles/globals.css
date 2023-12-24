@@ -27,3 +27,31 @@ a {
     background: black;
   }
 }
+
+@keyframes slideIn {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideOut {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(100%);
+  }
+}
+
+.modal-enter {
+  @apply duration-200 ease-out;
+  animation-name: slideIn;
+}
+
+.modal-leave {
+  @apply duration-150 ease-in;
+  animation-name: slideOut;
+}

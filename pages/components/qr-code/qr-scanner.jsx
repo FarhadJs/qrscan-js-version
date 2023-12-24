@@ -43,7 +43,7 @@ const ScanQR = ({ ScanSuccess }) => {
         scanner?.destroy();
       });
     };
-  }, []);
+  });
 
   return (
     <video
