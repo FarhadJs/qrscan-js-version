@@ -51,7 +51,7 @@ const ScanQR = ({ ScanSuccess }) => {
   return (
     <video
       ref={videoRef}
-      style={{ width: "250px", height: "250px", borderRadius: "30px" }}
+      style={{ width: "250px", height: "150px", borderRadius: "30px" }}
     />
   );
 };
