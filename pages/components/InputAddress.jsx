@@ -18,8 +18,8 @@ const InputAddress = () => {
   };
 
   const onQrCodeScanned = (scannedCode) => {
-    setQRCode("");
     setQRCode(scannedCode);
+    console.log(scannedCode);
   };
 
   return (

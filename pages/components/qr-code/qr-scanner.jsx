@@ -15,7 +15,7 @@ const ScanQR = ({ ScanSuccess }) => {
         videoRef.current,
         (result) => {
           setScanResult(result.data);
-          ScanSuccess(true, scanResult);
+          ScanSuccess(scanResult);
         },
         {
           highlightScanRegion: true,

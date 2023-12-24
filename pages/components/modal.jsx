@@ -5,9 +5,9 @@ import QrIcon from "../../assets/Scanqr.svg";
 import QrScanner from "../components/qr-code/qr-scanner";
 
 const ModalQrcode = ({ showModal, onOpenChange, getQrCodeResult }) => {
-  const SendQRCodeResult = (close_modal, qrcode_result) => {
+  const SendQRCodeResult = (qrcode_result) => {
     getQrCodeResult(qrcode_result);
-    onOpenChange(close_modal);
+    onOpenChange();
   };
   const [isAnimating, setIsAnimating] = useState(false);
 
