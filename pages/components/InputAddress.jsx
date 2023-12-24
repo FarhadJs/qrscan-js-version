@@ -12,14 +12,10 @@ const InputAddress = () => {
     setIsOpen(!isOpen);
   };
 
-  const handleInputChange = (e) => {
-    setQRCode(e.target.value);
-    console.log(QRCode);
-  };
+  // Removed the previous handleInputChange function and its logging
 
   const onQrCodeScanned = (scannedCode) => {
-    setQRCode(scannedCode);
-    console.log(scannedCode);
+    setQRCode(scannedCode); // This will now correctly update the QRCode state
   };
 
   return (
@@ -31,7 +27,7 @@ const InputAddress = () => {
       />
       <button
         onClick={OpenModal}
-        className="flex p-1 rounded items-center justify-center w-20 bg-transparent hover:bg-neutral-50 hover:bg-opacity-10 text-white absolute top-0.5 right-1 z-10 foucs:outline outline-none transition-all border border-transparent focus:border-neutral-500 active:border-transparent">
+        className="flex p-1 rounded items-center justify-center w-20 bg-transparent hover:bg-neutral-50 hover:bg-opacity-10 text-white absolute top-0.5 right-1 z-10 focus:outline outline-none transition-all border border-transparent focus:border-neutral-500 active:border-transparent">
         paste
         <div className="w-5 h-7 flex items-center justify-center">
           <Image src={QrCodeIcon} />
@@ -41,7 +37,7 @@ const InputAddress = () => {
         type="text"
         placeholder="Address:"
         value={QRCode}
-        onChange={handleInputChange}
+        onChange={(e) => setQRCode(e.target.value)} // Directly set the QRCode state without additional logging
         className="w-full p-2 rounded bg-transparent border border-neutral-50 focus-within:border-neutral-500 outline-none transition-all"
       />
     </div>
