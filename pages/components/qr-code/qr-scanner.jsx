@@ -1,13 +1,15 @@
 "use client";
 import React, { useEffect, useRef, useState } from "react";
+import { useDispatch } from "react-redux";
+import { setQrCodeResult } from "../../../features/qrCodeResult";
 import QrScanner from "qr-scanner";
 
 const ScanQR = ({ ScanSuccess }) => {
   const videoRef = useRef(null);
   const [scanResult, setScanResult] = useState("");
-  const [hasFlash, setHasFlash] = useState(false);
-
-  const cameras = QrScanner.listCameras(true);
+  // const [hasFlash, setHasFlash] = useState(false);
+  // const cameras = QrScanner.listCameras(true);
+  const dispatch = useDispatch();
 
   const initializeScanner = async () => {
     if (videoRef.current) {
@@ -16,6 +18,7 @@ const ScanQR = ({ ScanSuccess }) => {
         (result) => {
           setScanResult(result.data);
           ScanSuccess(scanResult);
+          dispatch(setQrCodeResult(result.data));
         },
         {
           highlightScanRegion: true,
@@ -25,7 +28,7 @@ const ScanQR = ({ ScanSuccess }) => {
 
       try {
         await qrScanner.start();
-        setHasFlash(await qrScanner.hasFlash());
+        // setHasFlash(await qrScanner.hasFlash());
       } catch (error) {
         console.error(error);
       }
@@ -46,10 +49,7 @@ const ScanQR = ({ ScanSuccess }) => {
   });
 
   return (
-    <video
-      ref={videoRef}
-      style={{ width: "250px", borderRadius: "30px" }}
-    />
+    <video ref={videoRef} style={{ width: "250px", borderRadius: "30px" }} />
   );
 };
 

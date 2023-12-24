@@ -1,12 +1,17 @@
 /* eslint-disable jsx-a11y/alt-text */
 import React, { useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { setQrCodeResult } from "../../features/qrCodeResult";
+
 import ModalQrcode from "./modal";
 import QrCodeIcon from "../../assets/Scanqr.svg";
 import Image from "next/image";
 
 const InputAddress = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [QRCode, setQRCode] = useState("");
+  // const [QRCode, setQRCode] = useState("");
+  const QRCode = useSelector((state) => state.qrCode.value);
+  const dispatch = useDispatch();
 
   const OpenModal = () => {
     setIsOpen(!isOpen);
@@ -14,17 +19,16 @@ const InputAddress = () => {
 
   // Removed the previous handleInputChange function and its logging
 
-  const onQrCodeScanned = (scannedCode) => {
-    // setQRCode(scannedCode);
-    setQRCode("scannedCode");
-  };
+  // const onQrCodeScanned = (scannedCode) => {
+  //   // setQRCode(scannedCode);
+  // };
 
   return (
     <div className="relative">
       <ModalQrcode
         showModal={isOpen}
         onOpenChange={OpenModal}
-        getQrCodeResult={onQrCodeScanned}
+        // getQrCodeResult={onQrCodeScanned}
       />
       <button
         onClick={OpenModal}
@@ -38,7 +42,7 @@ const InputAddress = () => {
         type="text"
         placeholder="Address:"
         value={QRCode}
-        onChange={(e) => setQRCode(e.target.value)} // Directly set the QRCode state without additional logging
+        onChange={(e) => dispatch(setQrCodeResult(e.target.value))}
         className="w-full p-2 rounded bg-transparent border border-neutral-50 focus-within:border-neutral-500 outline-none transition-all"
       />
     </div>
