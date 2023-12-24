@@ -17,8 +17,8 @@ const ScanQR = ({ ScanSuccess }) => {
         videoRef.current,
         (result) => {
           setScanResult(result.data);
-          ScanSuccess(scanResult);
-          dispatch(setQrCodeResult(result.data));
+          ScanSuccess(false);
+          dispatch(setQrCodeResult("QrCode Result : " + result.data));
         },
         {
           highlightScanRegion: true,
@@ -49,7 +49,10 @@ const ScanQR = ({ ScanSuccess }) => {
   });
 
   return (
-    <video ref={videoRef} style={{ width: "250px", borderRadius: "30px" }} />
+    <video
+      ref={videoRef}
+      style={{ width: "250px", height: "250px", borderRadius: "30px" }}
+    />
   );
 };
 

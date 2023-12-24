@@ -28,7 +28,6 @@ const InputAddress = () => {
       <ModalQrcode
         showModal={isOpen}
         onOpenChange={OpenModal}
-        // getQrCodeResult={onQrCodeScanned}
       />
       <button
         onClick={OpenModal}

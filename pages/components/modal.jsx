@@ -4,10 +4,9 @@ import Image from "next/image";
 import QrIcon from "../../assets/Scanqr.svg";
 import QrScanner from "../components/qr-code/qr-scanner";
 
-const ModalQrcode = ({ showModal, onOpenChange, getQrCodeResult }) => {
-  const SendQRCodeResult = (qrcode_result) => {
-    getQrCodeResult(qrcode_result);
-    onOpenChange();
+const ModalQrcode = ({ showModal, onOpenChange }) => {
+  const SendQRCodeResult = (close_modal) => {
+    onOpenChange(close_modal);
   };
   const [isAnimating, setIsAnimating] = useState(false);
 
@@ -21,7 +20,7 @@ const ModalQrcode = ({ showModal, onOpenChange, getQrCodeResult }) => {
 
   return (
     <div
-      className={`fixed inset-10 filter-backdrop backdrop-blur-sm z-30 flex items-center justify-center transition-all ${
+      className={`fixed inset-0 filter-backdrop backdrop-blur-sm z-30 flex items-center justify-center transition-all ${
         showModal ? "opacity-100" : "opacity-0 pointer-events-none"
       }`}>
       <div
