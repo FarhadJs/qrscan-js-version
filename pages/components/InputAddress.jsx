@@ -15,7 +15,8 @@ const InputAddress = () => {
   // Removed the previous handleInputChange function and its logging
 
   const onQrCodeScanned = (scannedCode) => {
-    setQRCode(scannedCode); // This will now correctly update the QRCode state
+    // setQRCode(scannedCode);
+    setQRCode("scannedCode");
   };
 
   return (
