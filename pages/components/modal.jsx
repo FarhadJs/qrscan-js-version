@@ -2,11 +2,15 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import QrIcon from "../../assets/Scanqr.svg";
-import QrScanner from "../components/qr-code/qr-scanner";
+import Html5Qrcode from "../components/qr-code/html5-qrcode";
+import { useDispatch } from "react-redux";
+import { setQrCodeResult } from "../../features/qrCodeResult";
 
 const ModalQrcode = ({ showModal, onOpenChange }) => {
-  const SendQRCodeResult = (close_modal) => {
-    onOpenChange(close_modal);
+  const dispatch = useDispatch();
+
+  const ShowQRCodeResult = (qrcode) => {
+    dispatch(setQrCodeResult(qrcode));
   };
   const [isAnimating, setIsAnimating] = useState(false);
 
@@ -31,13 +35,18 @@ const ModalQrcode = ({ showModal, onOpenChange }) => {
         <h2 className="text-xl font-bold mb-8 -mt-4">Scan Qr Code</h2>
         <div>
           <div className="flex flex-col items-center justify-center h-full pt-20">
-            <Image
+            {/* <Image
               alt="Qr Code Icon"
               src={QrIcon}
               className="w-40 opacity-30 absolute z-0"
-            />
+            /> */}
             <div className="absolute w-52">
-              <QrScanner ScanSuccess={SendQRCodeResult} />
+              {/* <QrScanner ScanSuccess={SendQRCodeResult} /> */}
+              <Html5Qrcode
+                fps={30}
+                qrbox={500}
+                qrCodeSuccessCallback={ShowQRCodeResult}
+              />
             </div>
           </div>
         </div>
