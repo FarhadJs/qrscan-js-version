@@ -1,7 +1,5 @@
 // /* eslint-disable jsx-a11y/alt-text */
 import React, { useState } from "react";
-import Image from "next/image";
-import QrIcon from "../../assets/Scanqr.svg";
 import Html5Qrcode from "../components/qr-code/html5-qrcode";
 import { useDispatch } from "react-redux";
 import { setQrCodeResult } from "../../features/qrCodeResult";
@@ -11,6 +9,7 @@ const ModalQrcode = ({ showModal, onOpenChange }) => {
 
   const ShowQRCodeResult = (qrcode) => {
     dispatch(setQrCodeResult(qrcode));
+    onOpenChange();
   };
   const [isAnimating, setIsAnimating] = useState(false);
 
@@ -19,7 +18,7 @@ const ModalQrcode = ({ showModal, onOpenChange }) => {
     setTimeout(() => {
       setIsAnimating(false);
       onOpenChange();
-    }, 10); // Duration of transition in milliseconds
+    }, 10);
   };
 
   return (
@@ -28,20 +27,14 @@ const ModalQrcode = ({ showModal, onOpenChange }) => {
         showModal ? "opacity-100" : "opacity-0 pointer-events-none"
       }`}>
       <div
+        id="ModalContent"
         className={`bg-neutral-700 w-96 h-80 text-neutral-200 rounded-lg p-8 shadow-lg transform transition-all relative ${
           isAnimating ? "opacity-0" : "opacity-100"
         }`}>
-        {/* Modal content goes here */}
         <h2 className="text-xl font-bold mb-8 -mt-4">Scan Qr Code</h2>
         <div>
           <div className="flex flex-col items-center justify-center h-full pt-20">
-            {/* <Image
-              alt="Qr Code Icon"
-              src={QrIcon}
-              className="w-40 opacity-30 absolute z-0"
-            /> */}
             <div className="absolute w-52">
-              {/* <QrScanner ScanSuccess={SendQRCodeResult} /> */}
               <Html5Qrcode
                 fps={30}
                 qrbox={500}

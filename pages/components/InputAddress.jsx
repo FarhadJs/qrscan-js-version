@@ -9,7 +9,6 @@ import Image from "next/image";
 
 const InputAddress = () => {
   const [isOpen, setIsOpen] = useState(false);
-  // const [QRCode, setQRCode] = useState("");
   const QRCode = useSelector((state) => state.qrCode.value);
   const dispatch = useDispatch();
 
@@ -17,21 +16,12 @@ const InputAddress = () => {
     setIsOpen(!isOpen);
   };
 
-  // Removed the previous handleInputChange function and its logging
-
-  // const onQrCodeScanned = (scannedCode) => {
-  //   // setQRCode(scannedCode);
-  // };
-
   return (
     <div className="relative">
-      <ModalQrcode
-        showModal={isOpen}
-        onOpenChange={OpenModal}
-      />
+      <ModalQrcode showModal={isOpen} onOpenChange={OpenModal} />
       <button
         onClick={OpenModal}
-        className="flex p-1 rounded items-center justify-center gap-1 w-20 bg-[#16191E] text-white absolute top-0.5 right-1 z-10 focus:outline outline-none transition-all border border-transparent focus:border-neutral-500 active:border-transparent">
+        className="flex rounded items-center justify-center gap-1 w-20 bg-[#16191E] text-white absolute top-1 right-1 z-10 focus:outline outline-none transition-all border border-transparent p-0.5 focus:border-neutral-500 active:border-transparent">
         paste
         <div className="w-5 h-7 flex items-center justify-center">
           <Image src={QrCodeIcon} />

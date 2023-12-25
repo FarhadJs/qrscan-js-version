@@ -17,9 +17,6 @@ const Select = ({ feeItems }) => {
           {feeItem.label}
         </option>
       ))}
-      {/* <option value="low">low</option>
-      <option value="Medium">Medium</option>
-      <option value="High">High</option> */}
     </select>
   );
 };
