@@ -21,7 +21,7 @@ const InputAddress = () => {
       <ModalQrcode showModal={isOpen} onOpenChange={OpenModal} />
       <button
         onClick={OpenModal}
-        className="flex rounded items-center justify-center gap-1 w-20 bg-[#16191E] text-white absolute top-1 right-1 z-10 focus:outline outline-none transition-all border border-transparent p-0.5 focus:border-neutral-500 active:border-transparent">
+        className="flex rounded items-center justify-center gap-1 w-20 bg-[#16191E] text-white absolute top-1 right-1 z-10 focus:outline outline-none transition-all border border-transparent p-0.5 hover:bg-neutral-500/20 focus:border-neutral-500 focus:bg-neutral-500/50 active:border-transparent">
         paste
         <div className="w-5 h-7 flex items-center justify-center">
           <Image src={QrCodeIcon} />

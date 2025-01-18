@@ -55,3 +55,27 @@ a {
   @apply duration-150 ease-in;
   animation-name: slideOut;
 }
+
+/* Qrcode Styles */
+
+/*Container */
+#html5qr-code-full-region {
+  @apply border-none !important;
+}
+#html5qr-code-full-region, #html5qr-code-full-region__scan_region video {
+  @apply mx-auto w-full rounded-xl -mt-3 !important;
+}
+
+/*Qr Icon*/
+#html5qr-code-full-region__scan_region {
+  @apply flex justify-center items-center px-0 !important;
+}
+/*Scan Button*/
+#html5qr-code-full-region__dashboard_section_csr {
+  @apply mb-5 mx-auto w-56 bg-black/20 py-3 rounded-lg hover:bg-black/50 !important;
+}
+/*Scan Qr image file*/
+#html5-qrcode-anchor-scan-type-change {
+  @apply no-underline bg-black/50 p-2 rounded;
+  text-decoration: none !important;
+}

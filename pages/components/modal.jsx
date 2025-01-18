@@ -28,15 +28,15 @@ const ModalQrcode = ({ showModal, onOpenChange }) => {
       }`}>
       <div
         id="ModalContent"
-        className={`bg-neutral-700 w-96 h-80 text-neutral-200 rounded-lg p-8 shadow-lg transform transition-all relative ${
+        className={`bg-neutral-700 w-96 h-[26em] text-neutral-200 rounded-lg p-8 shadow-lg transform transition-all relative ${
           isAnimating ? "opacity-0" : "opacity-100"
         }`}>
         <h2 className="text-xl font-bold mb-8 -mt-4">Scan Qr Code</h2>
         <div>
-          <div className="flex flex-col items-center justify-center h-full pt-20">
-            <div className="absolute w-52">
+          <div className="flex flex-col items-center justify-center h-full">
+            <div className=" w-full">
               <Html5Qrcode
-                fps={30}
+                fps={60}
                 qrbox={500}
                 qrCodeSuccessCallback={ShowQRCodeResult}
               />
@@ -44,7 +44,7 @@ const ModalQrcode = ({ showModal, onOpenChange }) => {
           </div>
         </div>
         <button
-          className="bg-neutral-500 hover:bg-neutral-600 transition-all text-white font-bold py-2 px-4 mt-4 rounded absolute bottom-3 right-5"
+          className="bg-neutral-500 hover:bg-neutral-600 transition-all text-white font-bold py-2 px-4 mt-4 rounded absolute bottom-2 right-32 left-32"
           onClick={closeModal}>
           Close
         </button>
